@@ -1,17 +1,23 @@
 <?php
 function afficherTableHTML($tab) {  
-    ksort($tab); 
-    echo "<table>";
-        foreach ($tab as $key=>$value) {
-            $link = "https://fr.wikipedia.org/wiki/$value";
-            echo "<tr><td>".strtoupper($key)."</td><td>".$value."</td><td><a href= ".$link.' target="_blank">Lien</a></td></tr>';
+    ksort($tab);
+    $res = "";
+    $res .= "<table><thead><tr>
+                    <th>Pays</th>
+                    <th>Capitale</th>
+                    <th>Lien wiki</th>
+            </tr></thead><tbody>";
+        foreach ($tab as $pays=>$capitale) {
+            $link = "https://fr.wikipedia.org/wiki/$capitale";
+            $res .= "<tr><td>".mb_strtoupper($pays)."</td><td>".$capitale."</td><td><a href= ".$link.' target="_blank">Lien</a></td></tr>';
         }    
-    echo "</table>";
+    $res .= "</tbody></table>";
+    return $res;
 }
 
 
-$pays = array("France"=>"Paris","Allemagne"=>"Berlin", "USA"=>"Washington", "Italie"=>"Rome");
+$data = array("France"=>"Paris","Allemagne"=>"Berlin", "USA"=>"Washington", "Italie"=>"Rome");
 
 
-afficherTableHTML($pays);
+echo afficherTableHTML($data);
 ?>

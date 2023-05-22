@@ -1,12 +1,13 @@
 <?php
 
-    function convertirMajRouge($string) {
+    function convertirMajRouge($string, $color) {
         $stringMaj = strtoupper($string);
-        echo '<span style="color:red;">' .$stringMaj. '</span>';
+        return "<span style='color:".$color."'>" .$stringMaj. "</span>";
 }
 
     $texte = "Mon texte en parametre";
   
-    convertirMajRouge($texte);
+    echo convertirMajRouge($texte, "red");
+    echo convertirMajRouge($texte, "#AAD231");
 
 ?>

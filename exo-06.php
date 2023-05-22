@@ -1,8 +1,8 @@
 <?php
     function alimenterListeDeroulante($tab){
         $res = "<form><select>";
-        foreach ($tab as $value){
-            $res .= "<option>$value</option>";
+        foreach ($tab as $civilite){
+            $res .= "<option value = ".$civilite.">$civilite</option>";
         }
         $res .= "</select></form>";
         return $res;

@@ -10,4 +10,7 @@
     $url = "http://my.mobirise.com/data/userpic/764.jpg";
     
     echo repeterImage ($url, 4);
+
+    // str_repeat
+    // echo str_repeat("<img src='http://my.mobirise.com/data/userpic/764.jpg'>", 5);
 ?>
