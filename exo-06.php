@@ -1,14 +1,15 @@
 <?php
     function alimenterListeDeroulante($tab){
-        echo "<select>";
+        $res = "<form><select>";
         foreach ($tab as $value){
-            echo "<option>$value</option>";
+            $res .= "<option>$value</option>";
         }
-        echo "</select>";
+        $res .= "</select></form>";
+        return $res;
     }
     
     $elements = array("Monsieur","Madame","Mademoiselle");
     
-    alimenterListeDeroulante($elements);
+    echo alimenterListeDeroulante($elements);
 
 ?>

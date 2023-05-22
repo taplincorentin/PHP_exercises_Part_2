@@ -1,10 +1,12 @@
 <?php
     function afficherInput($tab){
+        $res ="";
         foreach ($tab as $value){
-            echo $value. '<br><input type ="text"><br>';
+            $res .= $value. '<br><input type ="text"><br>';
         }
+        return $res;
     }    
     
     $nomsInput = array("Nom","Prénom","Ville");
-    afficherInput($nomsInput);
+    //echo afficherInput($nomsInput);
 ?>

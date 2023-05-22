@@ -1,10 +1,12 @@
 <?php
     function afficherRadio($tab){
+        $res = "";
         foreach ($tab as $key){
-            echo '<br><input type ="radio">'.$key.'<br>';
+            $res .= '<br><input type ="radio">'.$key.'<br>';
         }
+        return $res;
     }
     
     $elements = array("Monsieur","Madame","Mademoiselle");
-    afficherRadio($elements);
+    //echo afficherRadio($elements);
 ?>
