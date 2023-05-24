@@ -66,26 +66,43 @@
         }
         
         function demarrer(){
-            $this->_etat = true;
+            if($this->_etat){
+                echo "la voiture est déjà démarrée";
+            }
+            else{
+                $this->_etat = true;
+            }
         }
 
         function accelerer(int $vitesse){
-            if($this->_etat){$this->_vitesseActuelle += $vitesse;}
+            if($this->_etat){
+                $this->_vitesseActuelle += $vitesse;
+            }
             else {echo "la voiture n'est pas démarrée";}
             // $this->_vitesseActuelle = $this->_vitesseActuelle + $vitesse;
         }
         
         
         function ralentir(int $vitesse){
-            $this->_vitesseActuelle -= $vitesse;
-            if($this->_vitesseActuelle < 0){
-                $this->_vitesseActuelle = 0;
+            if($this->_etat){
+                $this->_vitesseActuelle -= $vitesse;
+                if($this->_vitesseActuelle < 0){
+                    $this->_vitesseActuelle = 0;
+                }
             }
+            else{ echo "la voiture est à l'arrêt, elle ne peut pas démarrer";}
         }
         
         function stopper(){
-            $this->_etat = false;
-            $this->_vitesseActuelle = 0;
+            if($this->_etat){
+                $this->_etat = false;
+                $this->_vitesseActuelle = 0;
+            }
+            else{ echo "la voiture est déjà à l'arrêt";}
+        }
+
+        function affVitesse(){
+            echo "<br> vitesse de la ".$this->get_marque()." : " . $this->get_vitesseActuelle(). "km/h";
         }
     }
     
