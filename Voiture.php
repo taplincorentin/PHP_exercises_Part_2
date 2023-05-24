@@ -3,14 +3,13 @@
         private string $_marque;
         private string $_modele;
         private int $_nbPortes;
-        private int $_vitesseActuelle;
-        private bool $_etat;
+        private int $_vitesseActuelle = 0;
+        private bool $_etat = false;
 
-        function __construct(string $marque, string $modele, int $nbPortes, int $vitesseActuelle) {
+        function __construct(string $marque, string $modele, int $nbPortes) {
             $this->_marque = $marque;
             $this->_modele = $modele;
             $this->_nbPortes = $nbPortes;
-            $this->_vitesseActuelle = $vitesseActuelle;
         }
 
 
@@ -59,12 +58,11 @@
         }
 
         // METHODES //
-        function affInfos($voiture){
-            echo $voiture -> get_marque();
-            echo $voiture -> get_modele();
-            echo $voiture -> get_nbPortes();
-            echo $voiture -> get_vitesseActuelle();
-            echo $voiture -> get_etat();
+        function affInfos(){
+            echo "Nom et Modèle du véhicule : ". $this -> get_marque() . " ". $this -> get_modele(). "<br>Nombre de portes: ".$this->get_nbPortes(). "<br> ";
+            if ($this -> get_etat()){ echo "Le vehicule est démarré <br>";}
+                else{echo "Le véhicule est à l'arrêt <br>"; }
+            echo "Sa vitesse actuelle est de ". $this -> get_vitesseActuelle(). " km/h<br>";
         }
         
         function demarrer(){
@@ -72,22 +70,24 @@
         }
 
         function accelerer(int $vitesse){
-            $this->_vitesseActuelle += $vitesse;
+            if($this->_etat){$this->_vitesseActuelle += $vitesse;}
+            else {echo "la voiture n'est pas démarrée";}
             // $this->_vitesseActuelle = $this->_vitesseActuelle + $vitesse;
         }
         
         
         function ralentir(int $vitesse){
             $this->_vitesseActuelle -= $vitesse;
-            if(_vitesseActuelle < 0){
+            if($this->_vitesseActuelle < 0){
                 $this->_vitesseActuelle = 0;
             }
         }
         
         function stopper(){
             $this->_etat = false;
+            $this->_vitesseActuelle = 0;
         }
     }
     
-
+    
 ?>
