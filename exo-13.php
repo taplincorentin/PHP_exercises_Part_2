@@ -14,4 +14,5 @@
     $v2->accelerer(20);
     echo "<br> vitesse de la Peugeot : " . $v1->get_vitesseActuelle(). "km/h";
     echo "<br> vitesse de la Citroen : ".$v2->get_vitesseActuelle(). "km/h";
+    
 ?>
