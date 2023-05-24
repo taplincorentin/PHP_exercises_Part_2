@@ -59,7 +59,13 @@
         }
 
         // METHODES //
-        function affInfos(){}
+        function affInfos($voiture){
+            echo $voiture -> get_marque();
+            echo $voiture -> get_modele();
+            echo $voiture -> get_nbPortes();
+            echo $voiture -> get_vitesseActuelle();
+            echo $voiture -> get_etat();
+        }
         
         function demarrer(){
             $this->_etat = true;
@@ -69,6 +75,7 @@
             $this->_vitesseActuelle += $vitesse;
             // $this->_vitesseActuelle = $this->_vitesseActuelle + $vitesse;
         }
+        
         
         function ralentir(int $vitesse){
             $this->_vitesseActuelle -= $vitesse;
